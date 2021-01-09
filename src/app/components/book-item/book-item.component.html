@@ -1,0 +1,11 @@
+<div class="book-item">
+  <div class="book-item-left">
+    <div *ngIf="!book.editing; else editingBook" class="book-item-label">{{ book.name }} - {{book.author}}</div>
+    <ng-template #editingBook>
+      <input type="text" class="book-item-edit" [(ngModel)]="book.name" autofocus>
+    </ng-template>
+  </div>
+  <div class="remove-item" (click)="bookService.deleteBook(book._id)">
+    &times;
+  </div>
+</div>
